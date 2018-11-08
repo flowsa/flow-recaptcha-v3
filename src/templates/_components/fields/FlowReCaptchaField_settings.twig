@@ -14,13 +14,3 @@
 #}
 
 {% import "_includes/forms" as forms %}
-
-{% do view.registerAssetBundle("flowsa\\flowrecaptcha\\assetbundles\\flowrecaptcha\\FlowReCaptchaAsset") %}
-
-{{ forms.textField({
-    label: 'Some Attribute',
-    instructions: 'Enter some attribute here.',
-    id: 'someAttribute',
-    name: 'someAttribute',
-    value: field['someAttribute']})
-}}

@@ -17,6 +17,7 @@ use Craft;
 use craft\base\ElementInterface;
 use craft\base\Field;
 use craft\helpers\Db;
+use flowsa\googlemapembed\GoogleMapEmbed;
 use yii\db\Schema;
 use craft\helpers\Json;
 
@@ -29,11 +30,6 @@ class FlowReCaptchaField extends Field
 {
     // Public Properties
     // =========================================================================
-
-    /**
-     * @var string
-     */
-    public $someAttribute = 'Some Default';
 
     // Static Methods
     // =========================================================================
@@ -56,8 +52,6 @@ class FlowReCaptchaField extends Field
     {
         $rules = parent::rules();
         $rules = array_merge($rules, [
-            ['someAttribute', 'string'],
-            ['someAttribute', 'default', 'value' => 'Some Default'],
         ]);
         return $rules;
     }
@@ -131,6 +125,7 @@ class FlowReCaptchaField extends Field
                 'field' => $this,
                 'id' => $id,
                 'namespacedId' => $namespacedId,
+                'siteKey' => FlowReCaptcha::$plugin->getSettings()->siteKey,
             ]
         );
     }

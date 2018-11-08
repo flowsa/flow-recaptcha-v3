@@ -17,10 +17,22 @@
 
 {% do view.registerAssetBundle("flowsa\\flowrecaptcha\\assetbundles\\flowrecaptcha\\FlowReCaptchaAsset") %}
 
+
 {{ forms.textField({
-    label: 'Some Field',
-    instructions: 'Enter some setting here.',
-    id: 'someAttribute',
-    name: 'someAttribute',
-    value: settings['someAttribute']})
+    label: 'Site Key',
+    instructions: 'Enter your reCAPTCHA site key.',
+    id: 'siteKey',
+    name: 'siteKey',
+    value: settings['siteKey'],
+    required: true})
 }}
+
+{{ forms.textField({
+    label: 'Secret Key',
+    instructions: 'Enter your reCAPTCHA secret key.',
+    id: 'secretKey',
+    name: 'secretKey',
+    value: settings['secretKey'],
+    required: true})
+}}
+

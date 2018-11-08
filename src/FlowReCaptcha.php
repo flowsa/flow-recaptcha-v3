@@ -10,6 +10,8 @@
 
 namespace flowsa\flowrecaptcha;
 
+use craft\events\RegisterTemplateRootsEvent;
+use craft\web\View;
 use flowsa\flowrecaptcha\models\Settings;
 use flowsa\flowrecaptcha\fields\FlowReCaptchaField as FlowReCaptchaFieldField;
 
@@ -73,6 +75,14 @@ class FlowReCaptcha extends Plugin
             function (PluginEvent $event) {
                 if ($event->plugin === $this) {
                 }
+            }
+        );
+
+        Event::on(
+            View::class,
+            View::EVENT_REGISTER_SITE_TEMPLATE_ROOTS,
+            function(RegisterTemplateRootsEvent $event) {
+                $event->roots['flow-re-captcha'] = __DIR__ . '/templates';
             }
         );
 
