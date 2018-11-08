@@ -1,0 +1,40 @@
+{
+    "name": "flowsa/flow-re-captcha",
+    "description": "A re-captcha field type for validating forms",
+    "type": "craft-plugin",
+    "version": "0.0.1",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "flowrecaptcha"
+    ],
+    "support": {
+        "docs": "???",
+        "issues": "???"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Flow Communications",
+            "homepage": "https://www.flowsa.com"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1"
+    },
+    "autoload": {
+        "psr-4": {
+          "flowsa\\flowrecaptcha\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "FlowReCaptcha",
+        "handle": "flow-re-captcha",
+        "hasCpSettings": true,
+        "hasCpSection": false,
+        "changelogUrl": "???",
+        "class": "flowsa\\flowrecaptcha\\FlowReCaptcha"
+    }
+}

@@ -1,0 +1,26 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * FlowReCaptcha plugin for Craft CMS 3.x
+ *
+ * FlowReCaptcha Settings.twig
+ *
+ * @author    Flow Communications
+ * @copyright Copyright (c) 2018 Flow Communications
+ * @link      https://www.flowsa.com
+ * @package   FlowReCaptcha
+ * @since     0.0.1
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("flowsa\\flowrecaptcha\\assetbundles\\flowrecaptcha\\FlowReCaptchaAsset") %}
+
+{{ forms.textField({
+    label: 'Some Field',
+    instructions: 'Enter some setting here.',
+    id: 'someAttribute',
+    name: 'someAttribute',
+    value: settings['someAttribute']})
+}}
