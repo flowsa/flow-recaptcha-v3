@@ -15,14 +15,16 @@
 
 {% import "_includes/forms" as forms %}
 
-<div class="g-recaptcha"  data-sitekey="{{ siteKey }}"></div>
+{% do view.registerAssetBundle("flowsa\\flowrecaptcha\\assetbundles\\flowrecaptcha\\FlowReCaptchaAsset") %}
+
+<div class="g-recaptcha" data-sitekey="{{ siteKey }}" style="min-height: 78px"></div>
 
 <ul class="parsley-errors-list filled js-ga-error hidden">
-        <li class="parsley-required">
-                Please complete the verification
-        </li>
+    <li class="parsley-required">
+        Please complete the verification
+    </li>
 </ul>
 
-<input type="hidden" name="{{ name }}" value="1">
+<input type="hidden" name="{{ name }}" value="0">
 
 <div class="js-ga-validate hidden" data-ga-validate="false"></div>
