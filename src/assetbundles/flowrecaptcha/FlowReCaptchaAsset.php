@@ -31,9 +31,9 @@ class FlowReCaptchaAsset extends AssetBundle
     {
         $this->sourcePath = "@flowsa/flowrecaptcha/assetbundles/flowrecaptcha/dist";
 
-        $this->depends = [
-            CpAsset::class,
-        ];
+        // $this->depends = [
+        //     CpAsset::class,
+        // ];
 
         $this->js = [
             'js/FlowReCaptcha.js',
