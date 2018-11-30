@@ -105,7 +105,7 @@ class FlowReCaptchaField extends Field
 
 
         //Craft::$app->templates->includeJsResource('recaptcha/js/scripts.js');
-        Craft::$app->getView()->registerJsFile('https://www.google.com/recaptcha/api.js?onload=initCaptcha&render=explicit');
+        Craft::$app->getView()->registerJsFile('https://www.google.com/recaptcha/api.js');
 
         // Get our id and namespace
         $id           = Craft::$app->getView()->formatInputId($this->handle);
@@ -138,6 +138,12 @@ class FlowReCaptchaField extends Field
     public function _validate()
     {
         $captcha = Craft::$app->request->post('g-recaptcha-response');
+        $user = Craft::$app->getUser();
+        $request = Craft::$app->getRequest();
+
+        if ($request->getIsCpRequest() ) {
+            return true;
+        }
 
         $verified = $this->verify($captcha);
 

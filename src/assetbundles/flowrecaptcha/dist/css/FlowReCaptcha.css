@@ -9,3 +9,9 @@
  * @package   FlowReCaptcha
  * @since     0.0.1
  */
+[data-type*="flowrecaptcha"] {
+    margin-bottom: 0;
+ }
+[data-type*="flowrecaptcha"] > label {
+    display: none;
+}
