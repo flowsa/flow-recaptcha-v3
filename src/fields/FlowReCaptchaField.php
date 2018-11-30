@@ -101,7 +101,7 @@ class FlowReCaptchaField extends Field
     public function getInputHtml($value, ElementInterface $element = null): string
     {
         // Register our asset bundle
-        Craft::$app->getView()->registerAssetBundle(FlowReCaptchaFieldFieldAsset::class);
+        // Craft::$app->getView()->registerAssetBundle(FlowReCaptchaFieldFieldAsset::class);
 
 
         //Craft::$app->templates->includeJsResource('recaptcha/js/scripts.js');
