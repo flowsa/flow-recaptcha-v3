@@ -12,8 +12,6 @@ namespace flowsa\flowrecaptchav3;
 
 use craft\events\RegisterTemplateRootsEvent;
 use craft\web\View;
-use flowsa\flowrecaptcha\models\Settings;
-use flowsa\flowrecaptcha\fields\FlowRecaptchaV3Field as FlowReCaptchaFieldField;
 
 use Craft;
 use craft\base\Plugin;
@@ -105,7 +103,7 @@ class FlowRecaptchaV3 extends Plugin
      */
     protected function createSettingsModel()
     {
-        return new Settings();
+        return new \flowsa\flowrecaptchav3\models\Settings();
     }
 
     /**
