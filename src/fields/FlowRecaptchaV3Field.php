@@ -10,8 +10,6 @@
 
 namespace flowsa\flowrecaptchav3\fields;
 
-use flowsa\flowrecaptcha\FlowReCaptcha;
-use flowsa\flowrecaptcha\assetbundles\flowrecaptchafieldfield\FlowReCaptchaFieldFieldAsset;
 
 use Craft;
 use craft\base\ElementInterface;

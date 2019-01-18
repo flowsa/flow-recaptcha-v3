@@ -10,8 +10,6 @@
 
 namespace flowsa\flowrecaptchav3\models;
 
-use flowsa\flowrecaptcha\FlowReCaptcha;
-
 use Craft;
 use craft\base\Model;
 
