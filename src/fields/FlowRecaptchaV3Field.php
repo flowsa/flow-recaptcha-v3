@@ -17,6 +17,7 @@ use Craft;
 use craft\base\ElementInterface;
 use craft\base\Field;
 use craft\helpers\Db;
+use flowsa\flowrecaptchav3\FlowRecaptchaV3;
 use flowsa\googlemapembed\GoogleMapEmbed;
 use GuzzleHttp\Client;
 use yii\db\Schema;
@@ -40,7 +41,7 @@ class FlowRecaptchaV3Field extends Field
      */
     public static function displayName(): string
     {
-        return Craft::t('flow-recaptcha-v3', 'FlowRecaptchaV3Field');
+        return Craft::t('flow-recaptcha-v3', 'Flow Recaptcha V3');
     }
 
     // Public Methods
@@ -100,48 +101,38 @@ class FlowRecaptchaV3Field extends Field
      */
     public function getInputHtml($value, ElementInterface $element = null): string
     {
-        // Register our asset bundle
-        // Craft::$app->getView()->registerAssetBundle(FlowReCaptchaFieldFieldAsset::class);
-
-
-        //Craft::$app->templates->includeJsResource('recaptcha/js/scripts.js');
-        Craft::$app->getView()->registerJsFile('https://www.google.com/recaptcha/api.js');
+        static $onceOnly = null;
 
         // Get our id and namespace
         $id           = Craft::$app->getView()->formatInputId($this->handle);
         $namespacedId = Craft::$app->getView()->namespaceInputId($id);
 
-        // Variables to pass down to our field JavaScript to let it namespace properly
-        $jsonVars = [
-            'id'        => $id,
-            'name'      => $this->handle,
-            'namespace' => $namespacedId,
-            'prefix'    => Craft::$app->getView()->namespaceInputId(''),
-        ];
-        $jsonVars = Json::encode($jsonVars);
-        Craft::$app->getView()->registerJs("$('#{$namespacedId}-field').FlowReCaptchaFlowReCaptchaField(" . $jsonVars . ");");
+        if (!$onceOnly) {
+            Craft::$app->getView()->registerJsFile('https://www.google.com/recaptcha/api.js?render=6Lcw0IoUAAAAABcQBnJvNcHkCVMKQsmfKgKCF73d');
+            $onceOnly = true;
+        }
+
 
         // Render the input template
         return Craft::$app->getView()->renderTemplate(
-            'flow-re-captcha/_components/fields/FlowReCaptchaField_input',
+            'flow-recaptcha-v3/_components/fields/FlowRecaptchaV3Field_input',
             [
                 'name'         => $this->handle,
                 'value'        => $value,
                 'field'        => $this,
                 'id'           => $id,
                 'namespacedId' => $namespacedId,
-                'siteKey'      => FlowReCaptcha::$plugin->getSettings()->siteKey,
+                'siteKey'      => FlowRecaptchaV3::$plugin->getSettings()->siteKey,
             ]
         );
     }
 
     public function _validate()
     {
-        $captcha = Craft::$app->request->post('g-recaptcha-response');
-        $user = Craft::$app->getUser();
+        $captcha = Craft::$app->request->post('fields.g-recaptcha-response');
         $request = Craft::$app->getRequest();
 
-        if ($request->getIsCpRequest() ) {
+        if ($request->getIsCpRequest()) {
             return true;
         }
 
@@ -165,29 +156,10 @@ class FlowRecaptchaV3Field extends Field
 
     public function verify($data)
     {
-        $base = "https://www.google.com/recaptcha/api/siteverify";
+        $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . FlowRecaptchaV3::$plugin->getSettings()->secretKey . "&response=" . $data);
+        $json  = json_decode($response);
 
-        $params = array(
-            'secret'   => FlowReCaptcha::$plugin->getSettings()->secretKey,
-            'response' => $data
-        );
-
-        $client = new Client();
-
-        $response = $client->request('POST', $base, [
-            'form_params' => $params
-        ]);
-
-        if ($response->getStatusCode() == 200) {
-            $json = json_decode((string)$response->getBody(), true);
-            if ($json['success']) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
+        return ($json->success && $json->score > 0.5);
     }
 
 }

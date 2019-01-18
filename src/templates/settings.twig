@@ -15,9 +15,6 @@
 
 {% import "_includes/forms" as forms %}
 
-{% do view.registerAssetBundle("flowsa\\flowrecaptcha\\assetbundles\\flowrecaptcha\\FlowReCaptchaAsset") %}
-
-
 {{ forms.textField({
     label: 'Site Key',
     instructions: 'Enter your reCAPTCHA site key.',

@@ -15,15 +15,7 @@
 
 
 
-{% do view.registerAssetBundle("flowsa\\flowrecaptcha\\assetbundles\\flowrecaptcha\\FlowReCaptchaAsset") %}
-
-
+{% do view.registerAssetBundle("flowsa\\flowrecaptchav3\\assetbundles\\flowrecaptchav3\\FlowRecaptchaV3Asset") %}
+<!-- works -->
 <input type="hidden" name="{{ name }}" value="1">
-<div 
-    class="g-recaptcha"
-    id="recaptcha{{ random() }}"
-    data-sitekey="{{ siteKey }}"
-    data-callback="onSubmit"
-    data-size="invisible">
-</div>
-
+<input class="g-recaptcha-response" data-sitekey="{{ siteKey }}" type="hidden" name="g-recaptcha-response">

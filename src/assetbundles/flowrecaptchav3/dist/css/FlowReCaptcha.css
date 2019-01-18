@@ -9,9 +9,9 @@
  * @package   FlowReCaptcha
  * @since     0.0.1
  */
-[data-type*="flowrecaptcha"] {
+[data-type*="FlowRecaptchaV3Field"] {
     margin-bottom: 0;
  }
-[data-type*="flowrecaptcha"] > label {
+[data-type*="FlowRecaptchaV3Field"] .heading, [data-type*="FlowRecaptchaV3Field"] label {
     display: none;
 }

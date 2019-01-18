@@ -8,11 +8,11 @@
  * @copyright Copyright (c) 2018 Flow Communications
  */
 
-namespace flowsa\flowrecaptcha\assetbundles\flowrecaptchafieldfield;
+namespace flowsa\flowrecaptchav3\assetbundles\flowrecaptchav3;
 
 use Craft;
 use craft\web\AssetBundle;
-use yii\web\JqueryAsset;
+// use yii\web\JqueryAsset;
 // use craft\web\assets\cp\CpAsset;
 
 /**
@@ -20,7 +20,7 @@ use yii\web\JqueryAsset;
  * @package   FlowReCaptcha
  * @since     0.0.1
  */
-class FlowRecaptchaV3FieldAsset extends AssetBundle
+class FlowRecaptchaV3Asset extends AssetBundle
 {
     // Public Methods
     // =========================================================================
@@ -30,18 +30,15 @@ class FlowRecaptchaV3FieldAsset extends AssetBundle
      */
     public function init()
     {
-        $this->sourcePath = "@flowsa/flowrecaptcha/assetbundles/flowrecaptchafieldfield/dist";
+        $this->sourcePath = "@flowsa/flowrecaptchav3/assetbundles/flowrecaptchav3/dist";
 
-        $this->depends = [
-            JqueryAsset::class,
-        ];
 
         $this->js = [
-            'js/FlowReCaptchaField.js',
+            'js/FlowReCaptcha.js',
         ];
 
         $this->css = [
-            'css/FlowReCaptchaField.css',
+            'css/FlowReCaptcha.css',
         ];
 
         parent::init();

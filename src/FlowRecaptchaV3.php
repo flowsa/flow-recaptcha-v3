@@ -83,13 +83,13 @@ class FlowRecaptchaV3 extends Plugin
             View::class,
             View::EVENT_REGISTER_SITE_TEMPLATE_ROOTS,
             function(RegisterTemplateRootsEvent $event) {
-                $event->roots['flow-re-captcha'] = __DIR__ . '/templates';
+                $event->roots['flow-recaptcha-v3'] = __DIR__ . '/templates';
             }
         );
 
         Craft::info(
             Craft::t(
-                'flow-re-captcha',
+                'flow-recaptcha-v3',
                 '{name} plugin loaded',
                 ['name' => $this->name]
             ),
