@@ -20,7 +20,7 @@ use yii\web\JqueryAsset;
  * @package   FlowReCaptcha
  * @since     0.0.1
  */
-class FlowReCaptchaFieldFieldAsset extends AssetBundle
+class FlowRecaptchaV3FieldAsset extends AssetBundle
 {
     // Public Methods
     // =========================================================================

@@ -20,7 +20,7 @@ use craft\web\AssetBundle;
  * @package   FlowReCaptcha
  * @since     0.0.1
  */
-class FlowReCaptchaAsset extends AssetBundle
+class FlowRecaptchaV3Asset extends AssetBundle
 {
     // Public Methods
     // =========================================================================
