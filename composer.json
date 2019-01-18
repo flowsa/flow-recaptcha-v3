@@ -1,6 +1,6 @@
 {
     "name": "flowsa/flow-recaptcha-v3",
-    "description": "A re-captcha field type for validating forms",
+    "description": "A re-captcha field type for validating forms V3",
     "type": "craft-plugin",
     "version": "0.0.2",
     "keywords": [
@@ -30,7 +30,7 @@
         }
     },
     "extra": {
-        "name": "FlowReCaptcha",
+        "name": "FlowRecaptchaV3",
         "handle": "flow-recaptcha-v3",
         "hasCpSettings": true,
         "hasCpSection": false,
