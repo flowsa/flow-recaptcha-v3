@@ -87,7 +87,7 @@ class FlowRecaptchaV3Field extends Field
     {
         // Render the settings template
         return Craft::$app->getView()->renderTemplate(
-            'flow-recaptcha-v3/_components/fields/FlowReCaptchaField_settings',
+            'flow-recaptcha-v3/_components/fields/FlowRecaptchaV3Field_settings',
             [
                 'field' => $this,
             ]
