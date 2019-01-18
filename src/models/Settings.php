@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2018 Flow Communications
  */
 
-namespace flowsa\flowrecaptcha\models;
+namespace flowsa\flowrecaptchav3\models;
 
 use flowsa\flowrecaptcha\FlowReCaptcha;
 

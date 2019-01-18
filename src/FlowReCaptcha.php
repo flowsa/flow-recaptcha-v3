@@ -8,12 +8,12 @@
  * @copyright Copyright (c) 2018 Flow Communications
  */
 
-namespace flowsa\flowrecaptcha;
+namespace flowsa\flowrecaptchav3;
 
 use craft\events\RegisterTemplateRootsEvent;
 use craft\web\View;
 use flowsa\flowrecaptcha\models\Settings;
-use flowsa\flowrecaptcha\fields\FlowReCaptchaField as FlowReCaptchaFieldField;
+use flowsa\flowrecaptcha\fields\FlowRecaptchaV3Field as FlowReCaptchaFieldField;
 
 use Craft;
 use craft\base\Plugin;
@@ -22,6 +22,7 @@ use craft\events\PluginEvent;
 use craft\services\Fields;
 use craft\events\RegisterComponentTypesEvent;
 
+use flowsa\flowrecaptchav3\fields\FlowRecaptchaV3Field;
 use yii\base\Event;
 
 /**
@@ -32,13 +33,13 @@ use yii\base\Event;
  * @since     0.0.1
  *
  */
-class FlowReCaptcha extends Plugin
+class FlowRecaptchaV3 extends Plugin
 {
     // Static Properties
     // =========================================================================
 
     /**
-     * @var FlowReCaptcha
+     * @var static
      */
     public static $plugin;
 
@@ -65,7 +66,7 @@ class FlowReCaptcha extends Plugin
             Fields::class,
             Fields::EVENT_REGISTER_FIELD_TYPES,
             function (RegisterComponentTypesEvent $event) {
-                $event->types[] = FlowReCaptchaFieldField::class;
+                $event->types[] = FlowRecaptchaV3Field::class;
             }
         );
 
@@ -113,7 +114,7 @@ class FlowReCaptcha extends Plugin
     protected function settingsHtml(): string
     {
         return Craft::$app->view->renderTemplate(
-            'flow-re-captcha/settings',
+            'flow-recaptcha-v3/settings',
             [
                 'settings' => $this->getSettings()
             ]

@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2018 Flow Communications
  */
 
-namespace flowsa\flowrecaptcha\fields;
+namespace flowsa\flowrecaptchav3\fields;
 
 use flowsa\flowrecaptcha\FlowReCaptcha;
 use flowsa\flowrecaptcha\assetbundles\flowrecaptchafieldfield\FlowReCaptchaFieldFieldAsset;
@@ -27,7 +27,7 @@ use craft\helpers\Json;
  * @package   FlowReCaptcha
  * @since     0.0.1
  */
-class FlowReCaptchaField extends Field
+class FlowRecaptchaV3Field extends Field
 {
     // Public Properties
     // =========================================================================
@@ -40,7 +40,7 @@ class FlowReCaptchaField extends Field
      */
     public static function displayName(): string
     {
-        return Craft::t('flow-re-captcha', 'FlowReCaptchaField');
+        return Craft::t('flow-recaptcha-v3', 'FlowRecaptchaV3Field');
     }
 
     // Public Methods

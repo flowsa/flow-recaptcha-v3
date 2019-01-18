@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2018 Flow Communications
  */
 
-namespace flowsa\flowrecaptcha\assetbundles\FlowReCaptcha;
+namespace flowsa\flowrecaptchav3\assetbundles\FlowReCaptcha;
 
 use Craft;
 use craft\web\AssetBundle;
