@@ -106,7 +106,7 @@ class FlowRecaptchaV3Field extends Field
         $namespacedId = Craft::$app->getView()->namespaceInputId($id);
 
         if (!$onceOnly) {
-            Craft::$app->getView()->registerJsFile('https://www.google.com/recaptcha/api.js?render=6Lcw0IoUAAAAABcQBnJvNcHkCVMKQsmfKgKCF73d');
+            Craft::$app->getView()->registerJsFile('https://www.google.com/recaptcha/api.js?render=' . FlowRecaptchaV3::$plugin->getSettings()->siteKey);
             $onceOnly = true;
         }
 
