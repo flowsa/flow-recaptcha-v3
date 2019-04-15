@@ -12,7 +12,7 @@ namespace flowsa\flowrecaptchav3\assetbundles\flowrecaptchav3;
 
 use Craft;
 use craft\web\AssetBundle;
-// use yii\web\JqueryAsset;
+use yii\web\JqueryAsset;
 // use craft\web\assets\cp\CpAsset;
 
 /**
@@ -32,7 +32,10 @@ class FlowRecaptchaV3Asset extends AssetBundle
     {
         $this->sourcePath = "@flowsa/flowrecaptchav3/assetbundles/flowrecaptchav3/dist";
 
-
+         $this->depends = [
+            JqueryAsset::class,
+        ];
+        
         $this->js = [
             'js/FlowReCaptcha.js',
         ];
