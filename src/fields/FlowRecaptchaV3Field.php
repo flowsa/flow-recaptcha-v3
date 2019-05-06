@@ -156,8 +156,8 @@ class FlowRecaptchaV3Field extends Field
     {
         $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . FlowRecaptchaV3::$plugin->getSettings()->secretKey . "&response=" . $data);
         $json  = json_decode($response);
-
-        return ($json->success && $json->score > 0.5);
+        $score = (double) FlowRecaptchaV3::$plugin->getSettings()->score; 
+        return ($json->success && $json->score > $score);
     }
 
 }

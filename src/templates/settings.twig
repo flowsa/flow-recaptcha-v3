@@ -32,4 +32,11 @@
     value: settings['secretKey'],
     required: true})
 }}
+{{ forms.textField({
+    label: 'Score',
+    instructions: 'Enter your reCAPTCHA score between 0 and 1',
+    id: 'score',
+    name: 'score',
+    value: settings['score']})
+}}
 

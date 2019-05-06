@@ -36,6 +36,12 @@ class Settings extends Model
      * @var string
      */
     public $secretKey = '';
+    /**
+     * Score model attribute
+     *
+     * @var string
+     */
+    public $score = 0.5;
 
 
     // Public Methods
@@ -56,6 +62,7 @@ class Settings extends Model
         return [
             ['siteKey', 'string'],
             ['secretKey', 'string'],
+            ['score', 'double'],
             [['siteKey', 'secretKey'], 'required']
         ];
     }
