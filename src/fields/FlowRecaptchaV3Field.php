@@ -143,7 +143,7 @@ class FlowRecaptchaV3Field extends Field
     {
         //$this->handle
         return [
-            [$this->handle, 'skipOnEmpty' => false, function ($model, $params) {
+            [$this->handle, function ($model, $params) {
                 if (!$this->_validate()) {
                     $model->addError($this->handle, 'The CAPTCHA verification failed.');
                     return false;
