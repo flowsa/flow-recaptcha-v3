@@ -1,6 +1,6 @@
 # FlowReCaptcha plugin for Craft CMS 3.x
 
-A re-captcha field type for validating forms
+A re-captcha field type for validating forms.
 
 ![Screenshot](resources/img/plugin-logo.png)
 
@@ -22,22 +22,3 @@ To install the plugin, follow these instructions.
 
 3. In the Control Panel, go to Settings → Plugins and click the “Install” button for FlowReCaptcha.
 
-## FlowReCaptcha Overview
-
--Insert text here-
-
-## Configuring FlowReCaptcha
-
--Insert text here-
-
-## Using FlowReCaptcha
-
--Insert text here-
-
-## FlowReCaptcha Roadmap
-
-Some things to do, and ideas for potential features:
-
-* Release it
-
-Brought to you by [Flow Communications](https://www.flowsa.com)
